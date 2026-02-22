@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRDE Seeds — Little Stories for Big Money Minds</title>
+<meta name="description" content="Financial wisdom stories for children and families. Every great portfolio began with a small lesson. Part of the GRDE Portfolio Engine by Shakhith A.M.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8A84E;
+  --gold-light: #F5EDD6;
+  --earth: #3E2F1C;
+  --earth-mid: #5C4A32;
+  --bark: #8B7355;
+  --moss: #4A6741;
+  --water: #3A6B8C;
+  --cream: #FAF7F0;
+  --warm-white: #FFFDF8;
+  --shadow: rgba(62, 47, 28, 0.08);
+  --shadow-deep: rgba(62, 47, 28, 0.15);
+  --soil: #A0845C;
+  --roots: #C8A84E;
+  --branches: #4A6741;
+  --canopy: #3A6B8C;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--warm-white);
+  color: var(--earth);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══════ NAVIGATION ══════ */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(62, 47, 28, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0 24px;
+  border-bottom: 1px solid rgba(200, 168, 78, 0.15);
+}
+
+.nav-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav-links { display: flex; gap: 32px; }
+
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(250, 247, 240, 0.6);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold); }
+
+/* ══════ HERO ══════ */
+.hero {
+  background: linear-gradient(170deg, var(--earth) 0%, var(--earth-mid) 50%, var(--bark) 100%);
+  color: var(--cream);
+  padding: 140px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(200, 168, 78, 0.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(74, 103, 65, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.hero h1 em { font-style: italic; color: var(--gold); }
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(250, 247, 240, 0.75);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  position: relative;
+}
+
+.hero-tagline {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold);
+  border: 1px solid rgba(200, 168, 78, 0.3);
+  padding: 8px 24px;
+  border-radius: 30px;
+  position: relative;
+}
+
+/* ══════ WEEK BADGE ══════ */
+.week-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.week-badge.current {
+  background: var(--gold);
+  color: var(--earth);
+}
+
+.week-badge.upcoming {
+  background: rgba(200, 168, 78, 0.15);
+  color: var(--gold);
+  border: 1px solid rgba(200, 168, 78, 0.3);
+}
+
+/* ══════ STORY SECTION ══════ */
+.stories-container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 60px 24px 40px;
+}
+
+.season-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.season-number {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.season-number.soil { color: var(--soil); }
+
+.season-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.season-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--bark);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ══════ STORY CARD ══════ */
+.story-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 36px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 12px var(--shadow);
+  border: 1px solid rgba(200, 168, 78, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.story-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px var(--shadow-deep);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.story-number {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.story-number.soil { color: var(--soil); }
+
+.story-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.story-body {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--earth-mid);
+}
+
+.story-body p { margin-bottom: 16px; }
+.story-body p:last-child { margin-bottom: 0; }
+
+.story-dialogue {
+  padding-left: 20px;
+  border-left: 3px solid var(--gold-light);
+  margin: 16px 0;
+  font-style: italic;
+  color: var(--earth);
+}
+
+.story-mantra-box {
+  margin-top: 28px;
+  padding: 24px 28px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.story-mantra-box.soil {
+  background: linear-gradient(135deg, rgba(160, 132, 92, 0.08), rgba(160, 132, 92, 0.04));
+  border: 1px solid rgba(160, 132, 92, 0.15);
+}
+
+.mantra-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.mantra-label.soil { color: var(--soil); }
+
+.mantra-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--earth);
+}
+
+/* ══════ STORY CREDIT / ACKNOWLEDGEMENT ══════ */
+.story-credit {
+  margin-top: 24px;
+  padding: 18px 24px;
+  background: rgba(62, 47, 28, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(62, 47, 28, 0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.credit-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--bark);
+}
+
+.credit-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--earth);
+}
+
+.credit-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--bark);
+  line-height: 1.5;
+}
+
+/* ══════ COMIC CONTAINER ══════ */
+.comic-container {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.comic-strip-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--shadow-deep);
+}
+
+.comic-placeholder {
+  background: linear-gradient(135deg, #F8F4EB, #F0EADE);
+  border: 2px dashed rgba(200, 168, 78, 0.3);
+  border-radius: 12px;
+  padding: 60px 32px;
+  text-align: center;
+}
+
+.comic-placeholder-icon { font-size: 3rem; margin-bottom: 16px; }
+
+.comic-placeholder-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--earth);
+  margin-bottom: 8px;
+}
+
+.comic-placeholder-text {
+  font-size: 0.92rem;
+  color: var(--bark);
+  max-width: 360px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ══════ VIDEO LINK BOX ══════ */
+.video-link-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.video-link {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--earth);
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.video-link:hover { background: var(--earth-mid); }
+
+/* ══════ TEXT TOGGLE BAR ══════ */
+.text-toggle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(200, 168, 78, 0.06);
+  border: 1px solid rgba(200, 168, 78, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 0;
+  transition: background 0.3s;
+}
+
+.text-toggle-bar:hover { background: rgba(200, 168, 78, 0.12); }
+
+.text-toggle-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--earth-mid);
+}
+
+.text-toggle-arrow {
+  font-size: 1rem;
+  color: var(--gold);
+  transition: transform 0.3s;
+}
+
+.text-toggle-bar.open .text-toggle-arrow { transform: rotate(180deg); }
+
+/* ══════ STORY TEXT (collapsed by default) ══════ */
+.story-preview {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, padding 0.4s ease;
+  padding: 0;
+}
+
+.story-preview.expanded {
+  max-height: 4000px;
+  padding: 20px 0 0;
+}
+
+/* ══════ COMING NEXT WEEK TEASER ══════ */
+.teaser-card {
+  background: linear-gradient(135deg, var(--cream), rgba(200, 168, 78, 0.06));
+  border: 2px dashed rgba(200, 168, 78, 0.3);
+  border-radius: 16px;
+  padding: 48px 36px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.teaser-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.teaser-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.teaser-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--earth);
+  margin-bottom: 12px;
+}
+
+.teaser-hint {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--bark);
+  max-width: 400px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+
+.teaser-countdown {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+/* ══════ PROGRESS BAR ══════ */
+.season-progress {
+  max-width: 780px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--bark);
+}
+
+.progress-count {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.progress-track {
+  height: 6px;
+  background: rgba(200, 168, 78, 0.12);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--moss));
+  transition: width 0.6s ease;
+}
+
+/* ══════ FOOTER ══════ */
+.stories-footer {
+  background: var(--earth);
+  color: rgba(250, 247, 240, 0.6);
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.footer-beaver { font-size: 2.5rem; margin-bottom: 12px; }
+
+.footer-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.footer-credit { font-size: 0.85rem; margin-bottom: 24px; }
+
+.footer-nav { display: flex; justify-content: center; gap: 32px; margin-bottom: 20px; }
+
+.footer-nav a {
+  color: rgba(250, 247, 240, 0.5);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover { color: var(--gold); }
+
+/* ══════ RESPONSIVE ══════ */
+@media (max-width: 640px) {
+  .hero { padding: 120px 20px 60px; }
+  .story-card { padding: 28px 22px; }
+  .teaser-card { padding: 36px 22px; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ FIXED NAV ══════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">GRDE</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="philosophy.html">Philosophy</a>
+      <a href="stories.html" class="active">Stories</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="hero-label">GRDE Seeds</div>
+  <h1>Little Stories for<br><em>Big Money Minds</em></h1>
+  <p class="hero-subtitle">Financial wisdom doesn't start with charts. It starts with a story told at the dinner table. A new story every week — age no barrier.</p>
+  <div class="hero-tagline">"Every great portfolio began with a small lesson."</div>
+</section>
+
+<!-- ══════ PROGRESS ══════ -->
+<div class="season-progress" style="padding-top: 40px;">
+  <div class="progress-header">
+    <span class="progress-label">Season 1: The Soil</span>
+    <!-- ✏️ UPDATE THIS each week: "1 of 12", "2 of 12", etc. -->
+    <span class="progress-count">1 of 12 stories released</span>
+  </div>
+  <div class="progress-track">
+    <!-- ✏️ UPDATE WIDTH each week: 8.33% per story (1/12=8.33%, 2/12=16.66%, etc.) -->
+    <div class="progress-fill" style="width: 8.33%;"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- STORIES CONTAINER — ADD NEW STORIES HERE -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="stories-container">
+
+  <div class="season-header">
+    <div class="season-number soil">Season 1</div>
+    <h2 class="season-title">The Soil</h2>
+    <p class="season-desc">Understanding the value of money — where every seed begins.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- WEEK 1 — STORY 1: The L and the U -->
+  <!-- ══════════════════════════════════════ -->
+  <div style="text-align: center;">
+    <span class="week-badge current">Week 1 — Now Live</span>
+  </div>
+
+  <div class="story-card">
+    <div class="story-number soil">Story 1</div>
+    <h3 class="story-title">The L and the U</h3>
+
+    <!-- ═══ COMIC PANELS (PRIMARY) ═══ -->
+    <!-- ✏️ REPLACE the placeholder below with your actual comic strip image -->
+    <div class="comic-container">
+      <div class="comic-placeholder">
+        <div class="comic-placeholder-icon">🎨</div>
+        <div class="comic-placeholder-title">Comic Strip Coming Soon</div>
+        <div class="comic-placeholder-text">The Amar Chitra Katha-style illustrated panels for this story are being crafted. Check back shortly!</div>
+      </div>
+      <!-- 
+        When your comic strip image is ready, replace the placeholder div above with:
+        <img src="comics/story1-the-l-and-the-u.png" alt="The L and the U — GRDE Seeds Comic Strip" class="comic-strip-img">
+      -->
+    </div>
+
+    <!-- ═══ VIDEO LINK ═══ -->
+    <!-- ✏️ ADD your YouTube Shorts/Reels link here when ready -->
+    <!--
+    <div class="video-link-box">
+      <a href="YOUR_YOUTUBE_SHORTS_LINK" target="_blank" class="video-link">
+        ▶ Watch the animated version
+      </a>
+    </div>
+    -->
+
+    <!-- ═══ TEXT STORY (EXPANDABLE) ═══ -->
+    <div class="text-toggle-bar" onclick="toggleStory('story1', this)">
+      <span class="text-toggle-label">📖 Read the full written story</span>
+      <span class="text-toggle-arrow">↓</span>
+    </div>
+    <div class="story-preview" id="story1">
+      <div class="story-body">
+        <p>Seven-year-old Arjun and his four-year-old sister Meera lived in a bustling township in Chennai where their Appa worked at a big factory. Engineers from faraway countries — places where snow fell and people spoke in sounds Arjun couldn't understand — also lived there with their families.</p>
+        <p>One Sunday, Arjun saw something strange at the township restaurant. A tall engineer from a country called Czechoslovakia sat down with his two children. But instead of ordering for them, the man placed a few coins in front of each child and said something in his language. The children studied the menu carefully, counted their coins, whispered to each other, and then — to Arjun's amazement — ordered their own food and paid for it themselves.</p>
+        <div class="story-dialogue">"Appa, why did those children pay?" Arjun asked, tugging at his father's sleeve.</div>
+        <p>His father, Vikram, watched thoughtfully. "Because, Arjun, their father wants them to understand what food costs."</p>
+        <p>That evening, Vikram couldn't stop thinking about what he'd seen. And slowly, an idea took shape. The next weekend, when the family went to their favourite restaurant in Anna Nagar, Vikram handed Arjun and Meera each a small card he'd made at home. One side had a big <strong>L</strong>. The other side had a big <strong>U</strong>.</p>
+        <div class="story-dialogue">"What's this, Appa?" Meera asked, turning the card over and over.</div>
+        <p>"L means <em>Limited</em>," Vikram said. "U means <em>Unlimited</em>. Before we order, I'll show you a sign. If it's U, you can order whatever you like. If it's L — I only have a fixed amount in my wallet today, and we all choose carefully."</p>
+        <p>From that day, at every restaurant visit, two small pairs of eyes would look to Appa first. He'd hold up his fingers — L or U — and the children would nod, understanding completely. On U days, they celebrated. On L days, they chose wisely, without complaining. Not once.</p>
+        <p>The L didn't mean less love. It meant Appa trusted them enough to tell them the truth.</p>
+        <p>Four decades later, Arjun's niece gave her own son his first pocket money — and taught him the very same game.</p>
+      </div>
+    </div>
+
+    <div class="story-mantra-box soil">
+      <div class="mantra-label soil">Money Mantra</div>
+      <div class="mantra-text">"Every rupee has a limit. Respect it, and it respects you back."</div>
+    </div>
+
+    <div class="story-credit">
+      <span class="credit-label">Story inspired by</span>
+      <span class="credit-name">Er. Jayaram K.K., ME, FIE</span>
+      <span class="credit-note">A true story from the BHEL township, 1970s — passed down through four decades and still being told.</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 🔽 WEEK 2 — PASTE NEXT STORY ABOVE THIS TEASER CARD 🔽 -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <!-- COMING NEXT WEEK TEASER -->
+  <div class="teaser-card">
+    <div class="teaser-icon">🔒</div>
+    <div class="teaser-label">Coming Next Week</div>
+    <div class="teaser-title">Story 2: The Bucket and the Chicken</div>
+    <div class="teaser-hint">"Two children earn dinner money — then refuse to spend it. Because money you sweat for, you never waste."</div>
+    <div class="teaser-countdown">Another true story from Er. Jayaram K.K. · New story every week</div>
+  </div>
+
+</div>
+
+<!-- ══════ FOOTER ══════ -->
+<section class="stories-footer">
+  <div class="footer-beaver">🦫</div>
+  <div class="footer-quote">"Build like a beaver. One dam. Four materials. Generational wealth."</div>
+  <div class="footer-credit">GRDE Seeds — from the GRDE Portfolio Engine by Shakhith A.M.</div>
+  <div class="footer-nav">
+    <a href="index.html">Home</a>
+    <a href="philosophy.html">Philosophy</a>
+    <a href="stories.html">Stories</a>
+  </div>
+</section>
+
+<script>
+function toggleStory(id, bar) {
+  const el = document.getElementById(id);
+  el.classList.toggle('expanded');
+  bar.classList.toggle('open');
+  const label = bar.querySelector('.text-toggle-label');
+  label.textContent = el.classList.contains('expanded') ? '📖 Hide the written story' : '📖 Read the full written story';
+}
+</script>
+</body>
+</html>
