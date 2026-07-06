@@ -940,8 +940,14 @@ body {
 
 <script>
 // ══════ SMOOTH SCROLL ══════
+// Top nav = 56px  +  sticky section nav = ~48px  +  breathing room = 12px
+const SCROLL_OFFSET = 116;
+
 function scrollTo(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - SCROLL_OFFSET;
+  window.scrollTo({ top, behavior: 'smooth' });
 }
 
 // ══════ ACTIVE TAB TRACKING ══════
@@ -950,17 +956,16 @@ const tabs = document.querySelectorAll('.section-tab');
 
 function updateActiveTab() {
   let current = 0;
-  const offset = 140;
   sections.forEach((id, i) => {
     const el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top <= offset) current = i;
+    if (el && el.getBoundingClientRect().top <= SCROLL_OFFSET + 20) current = i;
   });
   tabs.forEach((tab, i) => {
     tab.classList.toggle('active', i === current);
   });
 }
 
-window.addEventListener('scroll', updateActiveTab);
+window.addEventListener('scroll', updateActiveTab, { passive: true });
 updateActiveTab();
 
 // ══════ LAYER CARD ANIMATION ══════
