@@ -1142,9 +1142,9 @@ body {
       <span class="logo-text">GRDE</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#philosophy" class="nav-anchor">Philosophy</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
       <li><a href="#framework" class="nav-anchor">Framework</a></li>
-      <li><a href="#stories" class="nav-anchor">Stories</a></li>
+      <li><a href="stories.html">Stories</a></li>
       <li><a href="#creator" class="nav-anchor">About</a></li>
       <li><a href="https://shakhith-am.github.io/grde-portfolio/" target="_blank" class="nav-cta">Launch App →</a></li>
     </ul>
@@ -1567,7 +1567,7 @@ document.querySelectorAll('a.nav-anchor').forEach(anchor => {
 });
 
 // ── Scroll-spy: highlight active nav link ──
-const sections = ['philosophy', 'framework', 'stories', 'creator'].map(id => document.getElementById(id)).filter(Boolean);
+const sections = ['framework', 'creator'].map(id => document.getElementById(id)).filter(Boolean);
 const navAnchors = document.querySelectorAll('a.nav-anchor');
 
 function updateActiveNav() {
