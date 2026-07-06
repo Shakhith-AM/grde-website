@@ -661,12 +661,12 @@ body {
 <!-- ══════ SECTION NAV ══════ -->
 <nav class="section-nav">
   <div class="section-nav-inner">
-    <button class="section-tab active" onclick="scrollTo('origin')">Origin</button>
-    <button class="section-tab" onclick="scrollTo('science')">The Science</button>
-    <button class="section-tab" onclick="scrollTo('fourlayers')">Four Layers</button>
-    <button class="section-tab" onclick="scrollTo('ecosystem')">Ecosystem</button>
-    <button class="section-tab" onclick="scrollTo('architect')">The Architect</button>
-    <button class="section-tab" onclick="scrollTo('silver')">The Silver</button>
+    <button class="section-tab active" onclick="scrollToSection('origin')">Origin</button>
+    <button class="section-tab" onclick="scrollToSection('science')">The Science</button>
+    <button class="section-tab" onclick="scrollToSection('fourlayers')">Four Layers</button>
+    <button class="section-tab" onclick="scrollToSection('ecosystem')">Ecosystem</button>
+    <button class="section-tab" onclick="scrollToSection('architect')">The Architect</button>
+    <button class="section-tab" onclick="scrollToSection('silver')">The Silver</button>
   </div>
 </nav>
 
@@ -943,7 +943,7 @@ body {
 // Top nav = 56px  +  sticky section nav = ~48px  +  breathing room = 12px
 const SCROLL_OFFSET = 116;
 
-function scrollTo(id) {
+function scrollToSection(id) {
   const el = document.getElementById(id);
   if (!el) return;
   const top = el.getBoundingClientRect().top + window.pageYOffset - SCROLL_OFFSET;
